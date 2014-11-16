@@ -1,2 +1,526 @@
-{    "toJSON": true,    "dbInfo": [{        "name": "Model",        "uuid": ""    }],    "extraProperties": {        "version": "1",        "classes": {        },        "model": {            "scriptMode": "manual"
-        }    },    "dataClasses": []}
+﻿{
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"CaseClass": {
+				"panelColor": "#7F7F7F",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 25,
+						"Y": 20
+					}
+				}
+			},
+			"CaseActivityClass": {
+				"panelColor": "#B7DDE8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 570,
+						"Y": 28
+					}
+				}
+			},
+			"CompanyClass": {
+				"panelColor": "#fff",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 538,
+						"Y": 238
+					}
+				}
+			},
+			"FAQClass": {
+				"panelColor": "#D7E3BC",
+				"panel": {
+					"pathVisible": true,
+					"isOpen": "true",
+					"position": {
+						"X": 35,
+						"Y": 1095
+					}
+				}
+			},
+			"UserClass": {
+				"panelColor": "#7F7F7F",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 405,
+						"Y": 891
+					}
+				}
+			},
+			"ContactClass": {
+				"panelColor": "#B8CCE4",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 69,
+						"Y": 472
+					}
+				}
+			},
+			"AttachmentsClass": {
+				"panelColor": "#D8D8D8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 666,
+						"Y": 713
+					}
+				}
+			}
+		},
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 0,
+			"workspaceTop": 836,
+			"relationCurve": {
+				"run": true,
+				"mode": 1
+			}
+		}
+	},
+	"dataClasses": [
+		{
+			"name": "AttachmentsClass",
+			"className": "AttachmentsClass",
+			"collectionName": "AttachmentsClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "attachmentId",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true,
+					"matchColumn": "ID"
+				},
+				{
+					"name": "attachmentPath",
+					"kind": "storage",
+					"matchColumn": "AttachmentPath",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "case",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "CaseClass",
+					"path": "CaseClass"
+				}
+			],
+			"primKey": "attachmentId"
+		},
+		{
+			"name": "CaseActivityClass",
+			"className": "CaseActivityClass",
+			"collectionName": "CaseActivityClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "caseActivityId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "caseAction",
+					"kind": "storage",
+					"matchColumn": "CaseAction",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "caseActivityDate",
+					"kind": "storage",
+					"matchColumn": "CaseActivityDate",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				},
+				{
+					"name": "case",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "CaseClass",
+					"path": "CaseClass"
+				}
+			]
+		},
+		{
+			"name": "CaseClass",
+			"className": "CaseClass",
+			"collectionName": "CaseClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "caseId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "caseSubject",
+					"kind": "storage",
+					"matchColumn": "Subject",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "caseDate",
+					"kind": "storage",
+					"matchColumn": "CaseDate",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				},
+				{
+					"name": "caseDescription",
+					"kind": "storage",
+					"matchColumn": "Description",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "casePriority",
+					"kind": "storage",
+					"matchColumn": "Priority",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "caseSource",
+					"kind": "storage",
+					"matchColumn": "Source",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "activity",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "CaseActivityClassCollection",
+					"reversePath": true,
+					"path": "case"
+				},
+				{
+					"name": "company",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "CompanyClass",
+					"path": "CompanyClass"
+				},
+				{
+					"name": "attachments",
+					"kind": "relatedEntities",
+					"matchColumn": "attachmentsClassCollection",
+					"scope": "public",
+					"type": "AttachmentsClassCollection",
+					"reversePath": true,
+					"path": "case"
+				},
+				{
+					"name": "contact",
+					"scope": "public",
+					"path": "ContactClass",
+					"type": "ContactClass",
+					"kind": "relatedEntity"
+				},
+				{
+					"name": "owner",
+					"scope": "public",
+					"path": "UserClass",
+					"type": "UserClass",
+					"kind": "relatedEntity"
+				}
+			]
+		},
+		{
+			"name": "CompanyClass",
+			"className": "CompanyClass",
+			"collectionName": "CompanyClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "companyID",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "private",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "companyName",
+					"kind": "storage",
+					"matchColumn": "CompanyName",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "companyPhone",
+					"kind": "storage",
+					"matchColumn": "CompanyPhone",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "companyEmail",
+					"kind": "storage",
+					"matchColumn": "CompanyEmail",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "companyFax",
+					"kind": "storage",
+					"matchColumn": "CompanyFax",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "companyWebSite",
+					"kind": "storage",
+					"matchColumn": "CompanyWebSite",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "companyAddress",
+					"kind": "storage",
+					"matchColumn": "CompanyAddress",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "companyState",
+					"kind": "storage",
+					"matchColumn": "CompanyState",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "companyCountry",
+					"kind": "storage",
+					"matchColumn": "CompanyCountry",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "companyPostalCode",
+					"kind": "storage",
+					"matchColumn": "CompanyPostalCode",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "cases",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "CaseClassCollection",
+					"reversePath": true,
+					"path": "company"
+				},
+				{
+					"name": "contactClassCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "ContactClassCollection",
+					"reversePath": true,
+					"path": "company"
+				}
+			]
+		},
+		{
+			"name": "ContactClass",
+			"className": "ContactClass",
+			"collectionName": "ContactClassCollection",
+			"matchTable": "ContactClass,ContactClass",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "contactId",
+					"kind": "storage",
+					"matchColumn": "contractId,ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "contactName",
+					"kind": "storage",
+					"matchColumn": "ContactName",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "contactJobTitle",
+					"kind": "storage",
+					"matchColumn": "ContactJobTitle",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "contactPhone",
+					"kind": "storage",
+					"matchColumn": "ContactPhone",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "contactMobile",
+					"kind": "storage",
+					"matchColumn": "ContactMobile",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "contactEmail",
+					"kind": "storage",
+					"matchColumn": "ContactEmail",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "contactSecondaryEmail",
+					"kind": "storage",
+					"matchColumn": "ContactSecondaryEmail",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "company",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "CompanyClass",
+					"path": "CompanyClass"
+				},
+				{
+					"name": "caseClassCollection",
+					"scope": "public",
+					"reversePath": true,
+					"path": "contact",
+					"type": "CaseClassCollection",
+					"kind": "relatedEntities"
+				}
+			]
+		},
+		{
+			"name": "FAQClass",
+			"className": "FAQClass",
+			"collectionName": "FAQClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "FAQId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "question",
+					"kind": "storage",
+					"matchColumn": "Question",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "answer",
+					"kind": "storage",
+					"matchColumn": "Answer",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "show",
+					"kind": "storage",
+					"matchColumn": "Show",
+					"scope": "public",
+					"type": "bool"
+				},
+				{
+					"name": "sortOrder",
+					"kind": "storage",
+					"matchColumn": "Order",
+					"scope": "public",
+					"type": "long"
+				}
+			]
+		},
+		{
+			"name": "UserClass",
+			"className": "UserClass",
+			"collectionName": "UserClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "userId",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true,
+					"matchColumn": "ID"
+				},
+				{
+					"name": "userName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "userPassword",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "userRole",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "caseClassCollection",
+					"scope": "public",
+					"reversePath": true,
+					"path": "owner",
+					"type": "CaseClassCollection",
+					"kind": "relatedEntities"
+				}
+			],
+			"primKey": "userId"
+		}
+	],
+	"type": []
+}

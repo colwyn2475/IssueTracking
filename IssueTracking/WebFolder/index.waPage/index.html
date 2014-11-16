@@ -1,13 +1,66 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html><html>
 	<head>
 		<title>Main Page</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta name="generator" content="Wakanda GUIDesigner"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 		<meta name="WAF.packageJson"/>
-		<meta name="WAF.catalog" content="" />
-	</head>
-	<body id="waf-body" data-type="document" data-lib="WAF" data-rpc-activate="false" data-rpc-namespace="rpc" data-rpc-validation="false" style="">
+		<meta name="WAF.catalog" content="CaseClass,CaseActivityClass,CompanyClass,AttachmentsClass,ContactClass,UserClass"/>
+		<meta name="wakanda-version" content="10 build 10.173035"/>
+		<meta name="wakanda-build" content="10.173035"/>
+		<meta name="WAF.config.loadCSS" id="waf-interface-css" content="styles/index.css"/>
+		<meta name="WAF.config.loadCSS" id="waf-project-css" content="/application.css"/>
+
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="UserClass" data-lib="WAF" data-id="userClass" data-dataType="string" data-autoLoad="true" content="userClass"/>
+		
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="caseClass.casePriority" data-lib="WAF" data-id="casePriority" data-dataType="string" data-autoLoad="true" content="casePriority"/>
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="caseClass.caseSource" data-lib="WAF" data-id="caseSource" data-dataType="string" data-autoLoad="true" content="caseSource"/>
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="caseClass.activity" data-lib="WAF" data-id="activity" data-dataType="string" data-autoLoad="true" content="activity"/>
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="caseClass.company" data-lib="WAF" data-id="company" data-dataType="string" data-autoLoad="true" content="company"/>
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="caseClass.attachments" data-lib="WAF" data-id="attachments" data-dataType="string" data-autoLoad="true" content="attachments"/>
+		<meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="caseClass.contact" data-lib="WAF" data-id="contact" data-dataType="string" data-autoLoad="true" content="contact"/><meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="CaseClass" data-lib="WAF" data-id="caseClass" data-dataType="string" data-autoLoad="true" content="caseClass"/>
+		<meta data-type="dataSource" data-lib="WAF" data-source="ContactClass" data-source-type="dataClass" data-dataType="string" data-autoLoad="true" name="WAF.config.datasources" data-id="contactClass" content="contactClass"/></head>
+	<body id="waf-body" data-workspace-width="0" data-workspace-orientation="portrait" data-workspace-height="0" data-workspace-device="desktop" data-viewport-width="device-width" data-viewport-minimum-scale="1.0" data-viewport-maximum-scale="1.0" data-viewport-initial-scale="1.0" data-type="document" data-title="Main Page" data-theme="default" data-rpc-validation="false" data-rpc-namespace="rpc" data-rpc-activate="false" data-platform="desktop" data-lib="WAF" data-group="[['tabView1','menuBar1','container1','container2','container3','container4','container5','container6']]" data-entire-model="false" data-apple-meta-tags-status-bar="default" style="bottom:;right:;visibility:hidden;">
+	<div id="tabView1" data-type="tabView" data-padding="5" data-menu-position="top left" data-linked-tag="menuBar1,container1,container2,container3,container4,container5,container6" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-tabView">
+	 	 	<ul id="menuBar1" data-type="menuBar" data-tab-margin="5" data-subMenuShow="hover" data-linked-tag="tabView1" data-lib="WAF" data-display="horizontal" data-context="['protected']" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-tabView-menuBar waf-tabView-menuBar-top-left waf-widget waf-menuBar" data-level="0">
+	 	 	 	<li id="menuItem1" data-type="menuItem" data-text="Cases" data-linked-tag="richText1,container1" data-lib="WAF" data-context="['protected','allowDrop','allowRemove']" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-menuItem waf-menuItem-level-0 waf-level-0">
+	 	 	 	 	<div id="richText1" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-linked-tag="menuItem1" data-lib="WAF" data-label-position="left" data-label="" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-autoWidth="false" class="waf-widget waf-richText">Cases</div>
+ 	 	 	 	</li>
+ 	 	 		<li id="menuItem2" data-type="menuItem" data-text="Update Case" data-linked-tag="richText2,container2" data-lib="WAF" data-context="['protected','allowDrop','allowRemove']" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-menuItem waf-menuItem-level-0 waf-level-0">
+	 	 	 	 	<div id="richText2" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-linked-tag="menuItem2" data-lib="WAF" data-label-position="left" data-label="" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-autoWidth="false" class="waf-widget waf-richText">Update Case</div>
+ 	 	 	 	</li>
+ 	 	 		<li id="menuItem3" data-type="menuItem" data-linked-tag="richText3,container3" data-lib="WAF" data-context="['protected','allowDrop','allowRemove']" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-menuItem waf-menuItem-level-0 waf-level-0">
+	 	 	 	 	<div id="richText3" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-linked-tag="menuItem3" data-lib="WAF" data-label-position="left" data-label="" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-autoWidth="false" class="waf-widget waf-richText">Users</div>
+ 	 	 	 	</li>
+ 	 	 		<li id="menuItem4" data-type="menuItem" data-linked-tag="richText4,container4" data-lib="WAF" data-context="['protected','allowDrop','allowRemove']" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-menuItem waf-menuItem-level-0 waf-level-0">
+	 	 	 	 	<div id="richText4" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-linked-tag="menuItem4" data-lib="WAF" data-label-position="left" data-label="" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-autoWidth="false" class="waf-widget waf-richText">Contacts</div>
+ 	 	 	 	</li>
+ 	 	 		<li id="menuItem5" data-type="menuItem" data-linked-tag="richText5,container5" data-lib="WAF" data-context="['protected','allowDrop','allowRemove']" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-menuItem waf-menuItem-level-0 waf-level-0">
+	 	 	 	 	<div id="richText5" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-linked-tag="menuItem5" data-lib="WAF" data-label-position="left" data-label="" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-autoWidth="false" class="waf-widget waf-richText">Companies</div>
+ 	 	 	 	</li>
+ 	 	 		<li id="menuItem6" data-type="menuItem" data-lib="WAF" data-context="['protected','allowDrop','allowRemove']" class="waf-widget waf-menuItem waf-menuItem-level-0 waf-level-0" data-constraint-left="true" data-constraint-top="true" data-constraint-bottom="false" data-constraint-right="false" data-linked-tag="richText6,container6">
+	 	 	 	 	<div id="richText6" data-type="richText" data-lib="WAF" class="waf-widget waf-richText" data-autoWidth="false" data-label="" data-label-position="left" data-target="_blank" data-overflow="Hidden" data-plainText="true" data-constraint-left="true" data-constraint-top="true" data-constraint-bottom="false" data-constraint-right="false" data-linked-tag="menuItem6">FAQs</div>
+ 	 	 	 	</li>
+ 	 	 	</ul>
+ 	 		<div id="container1" data-type="container" data-linked-tag="menuItem1" data-lib="WAF" data-label-position="top" data-label="" data-context="['protected','allowDrop','allowBind','allowPaste']" data-constraint-top="true" data-constraint-right="true" data-constraint-left="true" data-constraint-bottom="true" class="waf-widget waf-container waf-container-level-0 waf-level-0 waf-tabView-container-level-0">
+	 	 	 	</div>
+ 	 		<div id="container2" data-type="container" data-linked-tag="menuItem2" data-lib="WAF" data-label-position="top" data-label="" data-context="['protected','allowDrop','allowBind','allowPaste']" data-constraint-top="true" data-constraint-right="true" data-constraint-left="true" data-constraint-bottom="true" class="waf-widget waf-container waf-container-level-0 waf-level-0 waf-tabView-container-level-0"></div>
+ 	 		<div id="container3" data-type="container" data-linked-tag="menuItem3" data-lib="WAF" data-label-position="top" data-label="" data-context="['protected','allowDrop','allowBind','allowPaste']" data-constraint-top="true" data-constraint-right="true" data-constraint-left="true" data-constraint-bottom="true" class="waf-widget waf-container waf-container-level-0 waf-level-0 waf-tabView-container-level-0">
+	 	 	 		<div id="dataGrid3" data-type="dataGrid" data-selection-mode="single" data-readOnly="true" data-lib="WAF" data-label-position="top" data-label="" data-footer-text="item(s)" data-footer-hide="true" data-display-error="true" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-column="[{'sourceAttID':'userName','colID':'userName','width':'150','title':'userName','type':'string'},{'sourceAttID':'userPassword','colID':'userPassword','width':'150','title':'userPassword','type':'string'},{'sourceAttID':'userRole','colID':'userRole','width':'150','title':'userRole','type':'string'}]" data-binding="userClass" class="waf-widget waf-dataGrid"></div>
+ 	 	 		<div id="autoForm1" data-withoutTable="true" data-type="autoForm" data-resize-optimal-each-widget="true" data-resize-each-widget="true" data-lib="WAF" data-display-error="true" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-column-name="userName,userPassword,userRole" data-column-attribute="userName,userPassword,userRole" data-column="[]" data-binding="userClass" class="waf-widget waf-autoForm"></div>
+ 	 	 	</div>
+ 	 		<div id="container4" data-type="container" data-linked-tag="menuItem4" data-lib="WAF" data-label-position="top" data-label="" data-context="['protected','allowDrop','allowBind','allowPaste']" data-constraint-top="true" data-constraint-right="true" data-constraint-left="true" data-constraint-bottom="true" class="waf-widget waf-container waf-container-level-0 waf-level-0 waf-tabView-container-level-0">
+	 	 	 	<div id="dataGrid1" data-type="dataGrid" data-lib="WAF" data-binding="contactClass" class="waf-widget waf-dataGrid" data-label="" data-label-position="top" data-selection-mode="single" data-display-error="true" data-footer-text="item(s)" data-column="[{'sourceAttID':'contactName','colID':'contactName','width':'150','title':'contactName','type':'string'},{'sourceAttID':'contactJobTitle','colID':'contactJobTitle','width':'150','title':'contactJobTitle','type':'string'},{'sourceAttID':'contactPhone','colID':'contactPhone','width':'150','title':'contactPhone','type':'string'},{'sourceAttID':'contactMobile','colID':'contactMobile','width':'150','title':'contactMobile','type':'string'},{'sourceAttID':'contactEmail','colID':'contactEmail','width':'150','title':'contactEmail','type':'string'},{'sourceAttID':'contactSecondaryEmail','colID':'contactSecondaryEmail','width':'150','title':'contactSecondaryEmail','type':'string'}]" data-constraint-left="true" data-constraint-top="true" data-constraint-bottom="false" data-constraint-right="false"></div>
+ 	 	 		<div id="autoForm2" data-type="autoForm" data-lib="WAF" data-binding="contactClass" class="waf-widget waf-autoForm" data-display-error="true" data-withoutTable="true" data-resize-each-widget="true" data-resize-optimal-each-widget="true" data-column="[]" data-constraint-left="true" data-constraint-top="true" data-constraint-bottom="false" data-constraint-right="false" data-column-attribute="contactName,contactJobTitle,contactPhone,contactMobile,contactEmail,contactSecondaryEmail,company" data-column-name="contactName,contactJobTitle,contactPhone,contactMobile,contactEmail,contactSecondaryEmail,company"></div>
+ 	 	 	</div>
+ 	 		<div id="container5" data-type="container" data-linked-tag="menuItem5" data-lib="WAF" data-label-position="top" data-label="" data-context="['protected','allowDrop','allowBind','allowPaste']" data-constraint-top="true" data-constraint-right="true" data-constraint-left="true" data-constraint-bottom="true" class="waf-widget waf-container waf-container-level-0 waf-level-0 waf-tabView-container-level-0"></div>
+ 	 		<div id="container6" data-type="container" data-lib="WAF" class="waf-widget waf-container waf-container-level-0 waf-level-0 waf-tabView-container-level-0" data-label="" data-label-position="top" data-context="['protected','allowDrop','allowBind','allowPaste']" data-constraint-left="true" data-constraint-top="true" data-constraint-bottom="true" data-constraint-right="true" data-linked-tag="menuItem6"></div>
+ 	 	</div>
+	
+	
+	
+	
+	
+		<script type="text/javascript" src="/waLib/WAF/Loader.js"></script>
 	</body>
 </html>
