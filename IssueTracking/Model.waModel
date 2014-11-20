@@ -9,8 +9,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 25,
-						"Y": 20
+						"X": 545,
+						"Y": 404
 					}
 				}
 			},
@@ -31,8 +31,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 538,
-						"Y": 238
+						"X": 935,
+						"Y": 37
 					}
 				}
 			},
@@ -42,8 +42,8 @@
 					"pathVisible": true,
 					"isOpen": "true",
 					"position": {
-						"X": 35,
-						"Y": 1095
+						"X": 139,
+						"Y": 1057
 					}
 				}
 			},
@@ -53,8 +53,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 405,
-						"Y": 891
+						"X": 592,
+						"Y": 923
 					}
 				}
 			},
@@ -64,8 +64,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 69,
-						"Y": 472
+						"X": 35,
+						"Y": 18
 					}
 				}
 			},
@@ -75,19 +75,69 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 666,
-						"Y": 713
+						"X": 1067,
+						"Y": 773
+					}
+				}
+			},
+			"RoleClass": {
+				"panelColor": "#D88CFF",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 26,
+						"Y": 879
+					}
+				}
+			},
+			"SubjectClass": {
+				"panelColor": "#76923C",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 33,
+						"Y": 342
+					}
+				}
+			},
+			"PriortityClass": {
+				"panelColor": "#D8D8D8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 25,
+						"Y": 520
+					}
+				}
+			},
+			"SourceClass": {
+				"panelColor": "#B2A2C7",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 27,
+						"Y": 702
 					}
 				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 0,
-			"workspaceTop": 836,
+			"workspaceLeft": 539,
+			"workspaceTop": 788,
 			"relationCurve": {
 				"run": true,
 				"mode": 1
+			},
+			"lastScriptLocation": {
+				"UserClass": {
+					"events": "UserClass/UserClass-events.js",
+					"method": "UserClass/UserClass-methods.js"
+				}
 			}
 		}
 	},
@@ -101,12 +151,13 @@
 				{
 					"name": "attachmentId",
 					"kind": "storage",
+					"matchColumn": "ID",
 					"scope": "public",
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
-					"primKey": true,
-					"matchColumn": "ID"
+					"indexKind": "btree",
+					"primKey": true
 				},
 				{
 					"name": "attachmentPath",
@@ -122,8 +173,7 @@
 					"type": "CaseClass",
 					"path": "CaseClass"
 				}
-			],
-			"primKey": "attachmentId"
+			]
 		},
 		{
 			"name": "CaseActivityClass",
@@ -139,6 +189,7 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
+					"indexKind": "btree",
 					"primKey": true
 				},
 				{
@@ -179,14 +230,16 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
+					"indexKind": "btree",
 					"primKey": true
 				},
 				{
-					"name": "caseSubject",
-					"kind": "storage",
-					"matchColumn": "Subject",
-					"scope": "public",
-					"type": "string"
+					"name": "subject",
+					"kind": "relatedEntity",
+					"matchColumn": "Subject,caseSubject,Subject",
+					"scope": "private",
+					"type": "SubjectClass",
+					"path": "SubjectClass"
 				},
 				{
 					"name": "caseDate",
@@ -204,18 +257,20 @@
 					"type": "string"
 				},
 				{
-					"name": "casePriority",
-					"kind": "storage",
-					"matchColumn": "Priority",
+					"name": "priority",
+					"kind": "relatedEntity",
+					"matchColumn": "Priority,casePriority,Priority",
 					"scope": "public",
-					"type": "string"
+					"type": "PriortityClass",
+					"path": "PriortityClass"
 				},
 				{
-					"name": "caseSource",
-					"kind": "storage",
-					"matchColumn": "Source",
+					"name": "source",
+					"kind": "relatedEntity",
+					"matchColumn": "Source,caseSource,Source",
 					"scope": "public",
-					"type": "string"
+					"type": "SourceClass",
+					"path": "SourceClass"
 				},
 				{
 					"name": "activity",
@@ -243,17 +298,17 @@
 				},
 				{
 					"name": "contact",
+					"kind": "relatedEntity",
 					"scope": "public",
-					"path": "ContactClass",
 					"type": "ContactClass",
-					"kind": "relatedEntity"
+					"path": "ContactClass"
 				},
 				{
 					"name": "owner",
+					"kind": "relatedEntity",
 					"scope": "public",
-					"path": "UserClass",
 					"type": "UserClass",
-					"kind": "relatedEntity"
+					"path": "UserClass"
 				}
 			]
 		},
@@ -267,10 +322,11 @@
 					"name": "companyID",
 					"kind": "storage",
 					"matchColumn": "ID",
-					"scope": "private",
+					"scope": "public",
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
+					"indexKind": "btree",
 					"primKey": true
 				},
 				{
@@ -369,6 +425,7 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
+					"indexKind": "btree",
 					"primKey": true
 				},
 				{
@@ -422,11 +479,11 @@
 				},
 				{
 					"name": "caseClassCollection",
+					"kind": "relatedEntities",
 					"scope": "public",
-					"reversePath": true,
-					"path": "contact",
 					"type": "CaseClassCollection",
-					"kind": "relatedEntities"
+					"reversePath": true,
+					"path": "contact"
 				}
 			]
 		},
@@ -444,6 +501,7 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
+					"indexKind": "btree",
 					"primKey": true
 				},
 				{
@@ -477,6 +535,144 @@
 			]
 		},
 		{
+			"name": "PriortityClass",
+			"className": "PriortityClass",
+			"collectionName": "PriortityClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "priorityId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "priorityName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string",
+					"maxLength": 20
+				},
+				{
+					"name": "caseClassCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "CaseClassCollection",
+					"reversePath": true,
+					"path": "priority"
+				}
+			]
+		},
+		{
+			"name": "RoleClass",
+			"className": "RoleClass",
+			"collectionName": "RoleClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "roleId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "roleName",
+					"kind": "storage",
+					"scope": "public",
+					"not_null": true,
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 15
+				},
+				{
+					"name": "userClassCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "UserClassCollection",
+					"reversePath": true,
+					"path": "Role"
+				}
+			]
+		},
+		{
+			"name": "SourceClass",
+			"className": "SourceClass",
+			"collectionName": "SourceClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "sourceId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "sourceName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string",
+					"maxLength": 20
+				},
+				{
+					"name": "caseClassCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "CaseClassCollection",
+					"reversePath": true,
+					"path": "source"
+				}
+			]
+		},
+		{
+			"name": "SubjectClass",
+			"className": "SubjectClass",
+			"collectionName": "SubjectClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "subjectId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "protected",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "subjectName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string",
+					"maxLength": 30
+				},
+				{
+					"name": "caseClassCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "CaseClassCollection",
+					"reversePath": true,
+					"path": "subject"
+				}
+			]
+		},
+		{
 			"name": "UserClass",
 			"className": "UserClass",
 			"collectionName": "UserClassCollection",
@@ -485,18 +681,22 @@
 				{
 					"name": "userId",
 					"kind": "storage",
+					"matchColumn": "ID",
 					"scope": "public",
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
-					"primKey": true,
-					"matchColumn": "ID"
+					"indexKind": "btree",
+					"primKey": true
 				},
 				{
 					"name": "userName",
 					"kind": "storage",
 					"scope": "public",
-					"type": "string"
+					"not_null": true,
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 50
 				},
 				{
 					"name": "userPassword",
@@ -505,22 +705,48 @@
 					"type": "string"
 				},
 				{
-					"name": "userRole",
-					"kind": "storage",
+					"name": "Role",
+					"kind": "relatedEntity",
 					"scope": "public",
-					"type": "string"
+					"type": "RoleClass",
+					"path": "RoleClass",
+					"matchColumn": "userRole"
 				},
 				{
 					"name": "caseClassCollection",
+					"kind": "relatedEntities",
 					"scope": "public",
-					"reversePath": true,
-					"path": "owner",
 					"type": "CaseClassCollection",
-					"kind": "relatedEntities"
+					"reversePath": true,
+					"path": "owner"
 				}
 			],
-			"primKey": "userId"
+			"events": [
+				{
+					"kind": "load",
+					"from": "$mainModel.UserClass.events.load",
+					"userDefined": true
+				},
+				{
+					"kind": "init",
+					"from": "$mainModel.UserClass.events.init",
+					"userDefined": true
+				},
+				{
+					"kind": "validate",
+					"from": "$mainModel.UserClass.events.validate",
+					"userDefined": true
+				}
+			],
+			"methods": [
+				{
+					"name": "insertUser",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.UserClass.methods.insertUser",
+					"userDefined": true
+				}
+			]
 		}
-	],
-	"type": []
+	]
 }
